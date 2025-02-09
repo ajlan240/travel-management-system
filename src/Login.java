@@ -1,7 +1,23 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
+
+    JButton login, signUp, forgotPasswordButton;
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource() == login) {
+
+        } else if (ae.getSource() == signUp) {
+            new SignUp();
+        } else if (ae.getSource() == forgotPasswordButton) {
+            new ForgetPassword();
+        }
+
+
+    }
 
     Login() {
         setTitle("Login");
@@ -55,21 +71,32 @@ public class Login extends JFrame {
     passwordField.setBorder(BorderFactory.createEmptyBorder());
     p2.add(passwordField);
 
-    JButton login = new JButton("Login");
+    login = new JButton("Login");
     login.setBounds(60, 190, 140, 40);
     login.setFont(new Font("San Serief", Font.BOLD, 20));
     login.setBackground(new Color( 131, 193, 233));
     login.setForeground(Color.WHITE);
     login.setBorderPainted(false);
+    login.addActionListener(this);
     p2.add(login);
 
-    JButton signUp = new JButton("Sign Up");
+    signUp = new JButton("Sign Up");
     signUp.setBounds(220, 190, 140, 40);
     signUp.setFont(new Font("San Serief", Font.BOLD, 20));
     signUp.setBackground(new Color( 131, 193, 233));
     signUp.setForeground(Color.WHITE);
     signUp.setBorderPainted(false);
+    signUp.addActionListener(this);
     p2.add(signUp);
+
+    forgotPasswordButton = new JButton("Forget Password");
+    forgotPasswordButton.setBounds(115, 240, 200, 40);
+    forgotPasswordButton.setFont(new Font("San Serief", Font.BOLD, 20));
+    forgotPasswordButton.setBackground(new Color( 131, 193, 233));
+    forgotPasswordButton.setForeground(Color.WHITE);
+    forgotPasswordButton.setBorderPainted(false);
+    forgotPasswordButton.addActionListener(this);
+    p2.add(forgotPasswordButton);
 
     setVisible(true);
 
