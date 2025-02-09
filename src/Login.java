@@ -11,7 +11,7 @@ public class Login extends JFrame {
 
 
     // change whole background color
-        getContentPane().setBackground(Color.WHITE);
+    getContentPane().setBackground(Color.WHITE);
 
     // organize ui elements
     JPanel p1 = new JPanel();
@@ -63,13 +63,13 @@ public class Login extends JFrame {
     login.setBorderPainted(false);
     p2.add(login);
 
-    JButton signIn = new JButton("Sign In");
-    signIn.setBounds(220, 190, 140, 40);
-    signIn.setFont(new Font("San Serief", Font.BOLD, 20));
-    signIn.setBackground(new Color( 131, 193, 233));
-    signIn.setForeground(Color.WHITE);
-    signIn.setBorderPainted(false);
-    p2.add(signIn);
+    JButton signUp = new JButton("Sign Up");
+    signUp.setBounds(220, 190, 140, 40);
+    signUp.setFont(new Font("San Serief", Font.BOLD, 20));
+    signUp.setBackground(new Color( 131, 193, 233));
+    signUp.setForeground(Color.WHITE);
+    signUp.setBorderPainted(false);
+    p2.add(signUp);
 
     setVisible(true);
 
