@@ -2,21 +2,36 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
 
     JButton login, signUp, forgotPasswordButton;
+    JTextField usernameField, passwordField;
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == login) {
+            try {
+                String username1 = usernameField.getText();
+                String password1 = passwordField.getText();
+                String query1 = "select * from account where username='"+username1+"' and password='"+password1+"'";
+                Conn conn = new Conn();
+                ResultSet rs = conn.st.executeQuery(query1);
+                if(rs.next()) {
+                    setVisible(false);
+                    new Loading();
 
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         } else if (ae.getSource() == signUp) {
             new SignUp();
         } else if (ae.getSource() == forgotPasswordButton) {
             new ForgetPassword();
         }
-
-
     }
 
     Login() {
@@ -56,7 +71,7 @@ public class Login extends JFrame implements ActionListener {
     username.setFont(new Font("San Serief", Font.BOLD, 20));
     p2.add(username);
 
-    JTextField usernameField = new JTextField();
+    usernameField = new JTextField();
     usernameField.setBounds(60, 60, 300, 30);
     usernameField.setBorder(BorderFactory.createEmptyBorder());
     p2.add(usernameField);
@@ -66,7 +81,7 @@ public class Login extends JFrame implements ActionListener {
     password.setFont(new Font("San Serief", Font.BOLD, 20));
     p2.add(password);
 
-    JTextField passwordField = new JTextField();
+    passwordField = new JTextField();
     passwordField.setBounds(60, 140, 300, 30);
     passwordField.setBorder(BorderFactory.createEmptyBorder());
     p2.add(passwordField);
