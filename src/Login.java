@@ -14,9 +14,12 @@ public class Login extends JFrame implements ActionListener {
             try {
                 String username1 = usernameField.getText();
                 String password1 = passwordField.getText();
+
                 String query1 = "select * from account where username='"+username1+"' and password='"+password1+"'";
+
                 Conn conn = new Conn();
                 ResultSet rs = conn.st.executeQuery(query1);
+
                 if(rs.next()) {
                     setVisible(false);
                     new Loading();
