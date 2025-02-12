@@ -23,10 +23,9 @@ public class SignUp extends JFrame implements ActionListener {
             try {
                 Conn con = new Conn();
                 con.st.executeUpdate(query);
-                // to show the popup window
-                JOptionPane.showMessageDialog(null, "Account Created Successfully");
+                JOptionPane.showMessageDialog(null, "Account Details added Successfully");
                 setVisible(false);
-                new Login();
+
             }
             catch(Exception ex) {
                 ex.printStackTrace();
@@ -42,6 +41,7 @@ public class SignUp extends JFrame implements ActionListener {
     }
 
     public SignUp() {
+
         setTitle("Sign Up");
         setSize(1000, 400);
         setLocation(350, 200);
@@ -136,7 +136,6 @@ public class SignUp extends JFrame implements ActionListener {
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/i3.png"));
         Image i2 = i1.getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
-
         JLabel image = new JLabel(i3);
         image.setBounds(100, 90, 200, 200);
         p2.add(image);

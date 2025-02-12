@@ -7,8 +7,18 @@ public class Dashboard extends JFrame implements ActionListener {
 
     JButton addPersonalDetailbutton, updatePersonalButton, viewDetailsButton, deletePersonDetailButton, checkPackageButton;
     JButton bookPackage, viewPackage, viewHotel, bookHotel, viewBookedHotel, destinationButton, paymentButton, calculatorButton, notepadButton, aboutButton;
+    String username;
 
-    Dashboard() {
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+    if(ae.getSource() == addPersonalDetailbutton ) {
+        new AddCustomer(username);
+    } else if (ae.getSource() == viewDetailsButton) {
+        new ViewDetails(username);
+    }
+    }
+    Dashboard(String username) {
+        this.username = username;
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setTitle("Dashboard");
         setLayout(null);
@@ -175,11 +185,8 @@ public class Dashboard extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Dashboard();
+        new Dashboard("");
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-    }
 }

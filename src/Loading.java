@@ -19,6 +19,7 @@ public class Loading extends JFrame implements Runnable {
                     progressBar.setValue(current + 1);
                 } else {
                     setVisible(false);
+                    new Dashboard(uname);
                 }
                 Thread.sleep(50);
             }
@@ -26,7 +27,8 @@ public class Loading extends JFrame implements Runnable {
             throw new RuntimeException(e);
         }
     }
-    Loading() {
+    Loading(String username) {
+        this.uname = username;
         t = new Thread(this);
         setTitle("Loading");
         setBounds(500, 200, 650, 400);
@@ -61,6 +63,6 @@ public class Loading extends JFrame implements Runnable {
 
     public static void main(String[] args) {
 
-        new Loading();
+        new Loading("");
     }
 }
