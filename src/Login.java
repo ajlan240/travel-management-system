@@ -8,6 +8,7 @@ public class Login extends JFrame implements ActionListener {
 
     JButton login, signUp, forgotPasswordButton;
     JTextField usernameField, passwordField;
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == login) {

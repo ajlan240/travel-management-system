@@ -15,6 +15,8 @@ public class Dashboard extends JFrame implements ActionListener {
         new AddCustomer(username);
     } else if (ae.getSource() == viewDetailsButton) {
         new ViewDetails(username);
+    } else if (ae.getSource() == updatePersonalButton) {
+        new UpdateCustomer(username);
     }
     }
     Dashboard(String username) {
@@ -177,8 +179,6 @@ public class Dashboard extends JFrame implements ActionListener {
         aboutButton.setForeground(Color.WHITE);
         aboutButton.addActionListener(this);
         p2.add(aboutButton);
-
-
 
         setVisible(true);
 
